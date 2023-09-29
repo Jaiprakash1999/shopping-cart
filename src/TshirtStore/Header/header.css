@@ -1,0 +1,21 @@
+.header {
+    position: fixed;
+    background: #fff;
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    box-shadow: 0px 0px 8px 0px rgba(98, 127, 172, 0.2);
+}
+.cart {
+    margin-right: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+.product-text {
+    text-decoration: underline;
+    margin-right: 12px;
+}
