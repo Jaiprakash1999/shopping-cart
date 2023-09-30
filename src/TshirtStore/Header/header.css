@@ -15,7 +15,16 @@
     display: flex;
     align-items: center;
 }
-.product-text {
-    text-decoration: underline;
-    margin-right: 12px;
+.filter-icon {
+    display: none;
+    @media (max-width: 768px) {
+        /* margin-right: 28px; */
+        display: block;
+    }
+}
+.filter-modal {
+    display: flex;
+    position: absolute;
+    top: 30px;
+    right: 60px;
 }

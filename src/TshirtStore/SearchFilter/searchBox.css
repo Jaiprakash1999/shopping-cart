@@ -5,6 +5,17 @@
     position: absolute;
     right: 12px;
     top: 2px;
+    @media (max-width: 768px) {
+        top: 4px;
+    }
+}
+.image-suffix {
+    height: 28px;
+    width: 28px;
+    @media (max-width: 768px) {
+        height: 20px;
+        width: 20px;
+    }
 }
 
 .input_field input[type="search"] {
@@ -17,4 +28,7 @@
     height: 30px;
     margin-right: 4px;
     border: none;
+    @media (max-width: 768px) {
+        min-width: 200px;
+    }
 }

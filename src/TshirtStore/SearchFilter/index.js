@@ -14,7 +14,11 @@ const SearchFilter = () => {
             />
             {searchInput === "" ? (
                 <div className="suffix">
-                    <img src={searchIcon} height={28} width={28} alt="search" />
+                    <img
+                        src={searchIcon}
+                        className="image-suffix"
+                        alt="search"
+                    />
                 </div>
             ) : null}
         </div>
