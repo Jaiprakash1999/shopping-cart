@@ -4,11 +4,19 @@ import cartIcon from "../Images/shopping-cart-icon-original.svg";
 import filterIcon from "../Images/filter-icon-original.svg";
 import { useState } from "react";
 import Filter from "../Filter";
+import { useNavigate } from "react-router-dom";
 const Header = () => {
     const [openFilterModal, setOpenFilterModal] = useState(false);
+    const navigate = useNavigate();
+
+    const handleNavigate = () => {
+        navigate("/shoppingCart");
+    };
     return (
         <header className="header">
-            <strong>TeeRex Store</strong>
+            <strong onClick={() => navigate("/")} style={{ cursor: "pointer" }}>
+                TeeRex Store
+            </strong>
             <SearchFilter />
             <img
                 src={filterIcon}
@@ -17,7 +25,13 @@ const Header = () => {
                 onClick={() => setOpenFilterModal((prev) => !prev)}
             />
             <div className="cart">
-                <img src={cartIcon} height={28} width={28} alt="cart" />
+                <img
+                    src={cartIcon}
+                    height={28}
+                    width={28}
+                    alt="cart"
+                    onClick={handleNavigate}
+                />
             </div>
             {openFilterModal ? (
                 <div className="filter-modal">
