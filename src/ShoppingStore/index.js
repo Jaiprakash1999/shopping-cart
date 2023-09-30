@@ -5,13 +5,11 @@ import ProductList from "./ProductList";
 const ShoppingStore = () => {
     const { data } = useGetData();
     return (
-        <div>
-            <div className="product-list-filter">
-                <div className="filter">
-                    <Filter />
-                </div>
-                <ProductList products={data} />
+        <div className="product-list-filter">
+            <div className="filter">
+                <Filter />
             </div>
+            <ProductList products={data} />
         </div>
     );
 };
