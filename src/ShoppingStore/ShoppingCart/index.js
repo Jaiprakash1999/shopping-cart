@@ -38,7 +38,7 @@ const ShoppingCart = () => {
                             alt={name}
                             className="cart-item-image"
                         />
-                        <div>
+                        <div className="name-price">
                             <strong> {name}</strong>
                             <div>Rs {price}</div>
                         </div>
@@ -58,14 +58,19 @@ const ShoppingCart = () => {
                                 )
                             )}
                         </select>
-                        <button onClick={() => removeFromCart(id)}>
+                        <button
+                            onClick={() => removeFromCart(id)}
+                            className="delete-button"
+                        >
                             Delete
                         </button>
                     </div>
                 );
             })}
             <hr />
-            <strong>Total amount Rs. {totalPrice()}</strong>
+            <strong className="total-price">
+                Total amount Rs. {totalPrice()}
+            </strong>
         </div>
     );
 };

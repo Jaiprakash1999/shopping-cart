@@ -8,7 +8,6 @@ const Filter = () => {
     const handleFilterChange = (e) => {
         const { name, value, type, checked } = e.target;
 
-        console.log(e.target.value, "e");
         if (type === "checkbox") {
             setFilters({
                 ...filters,
