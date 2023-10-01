@@ -4,7 +4,6 @@ import "./shoppingCart.css";
 const ShoppingCart = () => {
     const cartState = useContext(cartContext);
     const { cartItem, setCartItem } = cartState || {};
-    console.log(cartItem, "cartItem");
 
     const removeFromCart = (productId) => {
         const updateCart = cartItem.filter(

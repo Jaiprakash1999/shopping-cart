@@ -2,9 +2,9 @@ import { useContext } from "react";
 import "./productList.css";
 import { cartContext } from "../../App";
 
-const ProductList = ({ products }) => {
+const ProductList = () => {
     const cartState = useContext(cartContext);
-    const { cartItem, setCartItem } = cartState || {};
+    const { cartItem, setCartItem, filteredProducts } = cartState || {};
 
     const addToCart = (product) => {
         const totalQuantity = product.quantity;
@@ -27,7 +27,7 @@ const ProductList = ({ products }) => {
 
     return (
         <div className="product-card-container">
-            {products.map((product) => {
+            {filteredProducts.map((product) => {
                 const { id, name, imageURL, gender, price } = product || {};
                 return (
                     <div className="card" key={id}>

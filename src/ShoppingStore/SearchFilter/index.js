@@ -1,18 +1,20 @@
-import { useState } from "react";
+import { useContext } from "react";
 import "./searchBox.css";
 import searchIcon from "../Images/search-icon.svg";
+import { cartContext } from "../../App";
 const SearchFilter = () => {
-    const [searchInput, setSearchInput] = useState("");
+    const cartState = useContext(cartContext);
+    const { searchText, setSearchText } = cartState || {};
     return (
         <div className="input_field">
             <input
-                value={searchInput}
-                onChange={(event) => setSearchInput(event.target.value)}
+                value={searchText}
+                onChange={(e) => setSearchText(e.target.value)}
                 className="input"
                 type="search"
                 placeholder="Search"
             />
-            {searchInput === "" ? (
+            {searchText === "" ? (
                 <div className="suffix">
                     <img
                         src={searchIcon}
