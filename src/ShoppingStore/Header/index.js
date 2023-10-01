@@ -5,7 +5,7 @@ import filterIcon from "../Images/filter-icon-original.svg";
 import { useState } from "react";
 import Filter from "../Filter";
 import { useNavigate } from "react-router-dom";
-const Header = () => {
+const Header = ({ cartLength }) => {
     const [openFilterModal, setOpenFilterModal] = useState(false);
     const navigate = useNavigate();
 
@@ -25,6 +25,7 @@ const Header = () => {
                 onClick={() => setOpenFilterModal((prev) => !prev)}
             />
             <div className="cart">
+                {cartLength}
                 <img
                     src={cartIcon}
                     height={28}

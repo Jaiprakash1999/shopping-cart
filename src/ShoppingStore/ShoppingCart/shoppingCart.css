@@ -1,0 +1,26 @@
+.shoping-cart-container {
+    /* display: flex; */
+    width: 100%;
+    position: absolute;
+    margin-top: 70px;
+}
+.cart-item-image {
+    border-radius: 6px;
+    width: 130px;
+    padding: 4px;
+    position: relative;
+    height: 150px;
+    cursor: pointer;
+    overflow: hidden;
+    margin: 8px;
+    background: #dfdfde;
+    box-shadow: 0px 0px 8px 0px rgba(98, 127, 172, 0.2);
+    @media (max-width: 768px) {
+        width: 45%;
+        height: 260px;
+    }
+}
+.shoping-card {
+    display: flex;
+    align-items: center;
+}

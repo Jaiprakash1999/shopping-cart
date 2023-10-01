@@ -37,3 +37,9 @@
     align-items: center;
     justify-content: center;
 }
+.add-to-cart-button {
+    cursor: pointer;
+    border-color: #dfdfde;
+    background: #ffffff;
+    border-radius: 4px;
+}
