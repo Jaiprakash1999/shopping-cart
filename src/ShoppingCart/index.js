@@ -3,7 +3,7 @@ import { cartContext } from "../App";
 import "./shoppingCart.css";
 const ShoppingCart = () => {
     const cartState = useContext(cartContext);
-    const { cartItem, setCartItem } = cartState || {};
+    const { cartItem = [], setCartItem = () => {} } = cartState || {};
 
     const removeFromCart = (productId) => {
         const updateCart = cartItem.filter(
@@ -69,7 +69,7 @@ const ShoppingCart = () => {
             })}
             <hr />
             <strong className="total-price">
-                Total amount Rs. {totalPrice()}
+                Total amount: Rs. {totalPrice()}
             </strong>
         </div>
     );

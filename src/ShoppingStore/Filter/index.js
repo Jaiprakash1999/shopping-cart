@@ -5,10 +5,14 @@ import ColorFilter from "./ColorFilter";
 import GenderFilter from "./GenderFilter";
 import PriceRangeFilter from "./PriceRangeFilter";
 import ClothTypeFilter from "./ClothTypeFilter";
-const Filter = ({ setOpenFilterModal }) => {
+const Filter = ({ setOpenFilterModal = () => {} }) => {
     const filterState = useContext(cartContext);
-    const { filters, setFilters, handleClearFilters, appliedFilter } =
-        filterState || {};
+    const {
+        filters = {},
+        setFilters = () => {},
+        handleClearFilters = () => {},
+        appliedFilter = false,
+    } = filterState || {};
 
     const handleFilterChange = (e) => {
         const { name, value, type, checked } = e.target;
@@ -37,7 +41,7 @@ const Filter = ({ setOpenFilterModal }) => {
                         }}
                         className="clear-applied-filter"
                     >
-                        Clear all Filters{" "}
+                        Clear all Filters
                     </button>
                     <button
                         onClick={() => setOpenFilterModal(false)}

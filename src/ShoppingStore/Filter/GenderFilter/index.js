@@ -1,4 +1,4 @@
-const GenderFilter = ({ filters, handleFilterChange }) => {
+const GenderFilter = ({ filters = {}, handleFilterChange = () => {} }) => {
     return (
         <div>
             <h4>Gender</h4>

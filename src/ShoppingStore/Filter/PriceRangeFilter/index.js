@@ -1,4 +1,4 @@
-const PriceRangeFilter = ({ filters, handleFilterChange }) => {
+const PriceRangeFilter = ({ filters = {}, handleFilterChange = () => {} }) => {
     return (
         <div>
             <h4>Price</h4>

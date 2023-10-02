@@ -4,7 +4,12 @@ import { cartContext } from "../../App";
 
 const ProductList = () => {
     const cartState = useContext(cartContext);
-    const { cartItem, setCartItem, filteredProducts } = cartState || {};
+    const {
+        cartItem = [],
+        setCartItem = () => {},
+        filteredProducts = [],
+        loading = false,
+    } = cartState || {};
 
     const addToCart = (product) => {
         const totalQuantity = product.quantity;
@@ -27,30 +32,36 @@ const ProductList = () => {
 
     return (
         <div className="product-card-container">
-            {filteredProducts.map((product) => {
-                const { id, name, imageURL, gender, price } = product || {};
-                return (
-                    <div className="card" key={id}>
-                        <img
-                            src={imageURL}
-                            alt={name}
-                            className="product-image"
-                        />
-                        <strong className="title">
-                            {gender} | {name}
-                        </strong>
-                        <div className="bottom">
-                            <strong className="title">Rs {price}</strong>
-                            <button
-                                onClick={() => addToCart(product)}
-                                className="add-to-cart-button"
-                            >
-                                Add to Cart
-                            </button>
+            {loading ? (
+                <div className="no_data">
+                    <strong>Loading...</strong>
+                </div>
+            ) : (
+                filteredProducts.map((product) => {
+                    const { id, name, imageURL, gender, price } = product || {};
+                    return (
+                        <div className="card" key={id}>
+                            <img
+                                src={imageURL}
+                                alt={name}
+                                className="product-image"
+                            />
+                            <strong className="title">
+                                {gender} | {name}
+                            </strong>
+                            <div className="bottom">
+                                <strong className="title">Rs {price}</strong>
+                                <button
+                                    onClick={() => addToCart(product)}
+                                    className="add-to-cart-button"
+                                >
+                                    Add to Cart
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                );
-            })}
+                    );
+                })
+            )}
         </div>
     );
 };

@@ -5,7 +5,7 @@ import filterIcon from "../Images/filter-icon-original.svg";
 import { useState } from "react";
 import Filter from "../Filter";
 import { useNavigate } from "react-router-dom";
-const Header = ({ cartLength, appliedFilter }) => {
+const Header = ({ cartLength = 0, appliedFilter = false }) => {
     const [openFilterModal, setOpenFilterModal] = useState(false);
     const [showFilter, setShowFilter] = useState(true);
     const navigate = useNavigate();

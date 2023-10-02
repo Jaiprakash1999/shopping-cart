@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import useGetData from "../ShoppingStore/hooks/useGetData";
 
 const useGetStateData = () => {
-    const { data: products } = useGetData();
+    const { data: products, loading } = useGetData();
     const [cartItem, setCartItem] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState(products);
     const [filters, setFilters] = useState({
@@ -96,6 +96,7 @@ const useGetStateData = () => {
         totalCartItem,
         handleClearFilters,
         appliedFilter,
+        loading,
     };
 };
 

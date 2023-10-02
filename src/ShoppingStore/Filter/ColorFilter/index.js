@@ -1,4 +1,4 @@
-const ColorFilter = ({ filters, handleFilterChange }) => {
+const ColorFilter = ({ filters = {}, handleFilterChange = () => {} }) => {
     return (
         <div>
             <h4>Color</h4>

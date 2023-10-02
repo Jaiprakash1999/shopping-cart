@@ -1,4 +1,4 @@
-const ClothTypeFilter = ({ filters, handleFilterChange }) => {
+const ClothTypeFilter = ({ filters = {}, handleFilterChange = () => {} }) => {
     return (
         <div>
             <h4>Type</h4>

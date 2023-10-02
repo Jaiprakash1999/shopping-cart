@@ -2,10 +2,14 @@ import { useContext } from "react";
 import "./searchBox.css";
 import searchIcon from "../Images/search-icon.svg";
 import { cartContext } from "../../App";
-const SearchFilter = ({ appliedFilter }) => {
+const SearchFilter = ({ appliedFilter = false }) => {
     const cartState = useContext(cartContext);
-    const { filters, setFilters, handleClearFilters } = cartState || {};
-    const { searchText } = filters;
+    const {
+        filters = {},
+        setFilters = () => {},
+        handleClearFilters = () => {},
+    } = cartState || {};
+    const { searchText = "" } = filters;
 
     return (
         <div className="search-container">

@@ -44,3 +44,15 @@
     background: #ffffff;
     border-radius: 4px;
 }
+
+.no_data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    width: 100%;
+    font-size: 3em;
+    margin: 30px;
+    background: #dfdfde;
+    box-shadow: 0px 0px 8px 0px rgba(98, 127, 172, 0.2);
+}

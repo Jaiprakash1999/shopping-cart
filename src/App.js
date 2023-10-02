@@ -10,14 +10,15 @@ export const cartContext = createContext();
 
 const App = () => {
     const {
-        cartItem,
-        setCartItem,
-        filteredProducts,
-        filters,
-        setFilters,
-        totalCartItem,
-        handleClearFilters,
-        appliedFilter,
+        cartItem = [],
+        setCartItem = () => {},
+        filteredProducts = [],
+        filters = {},
+        setFilters = () => {},
+        totalCartItem = 0,
+        handleClearFilters = () => {},
+        appliedFilter = false,
+        loading = false,
     } = useGetStateData();
 
     return (
@@ -30,6 +31,7 @@ const App = () => {
                 setFilters,
                 handleClearFilters,
                 appliedFilter,
+                loading,
             }}
         >
             <BrowserRouter>
