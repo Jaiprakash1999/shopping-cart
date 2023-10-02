@@ -4,6 +4,7 @@ import { cartContext } from "../../App";
 import ColorFilter from "./ColorFilter";
 import GenderFilter from "./GenderFilter";
 import PriceRangeFilter from "./PriceRangeFilter";
+import ClothTypeFilter from "./ClothTypeFilter";
 const Filter = () => {
     const filterState = useContext(cartContext);
     const { filters, setFilters } = filterState || {};
@@ -34,11 +35,11 @@ const Filter = () => {
                 filters={filters}
                 handleFilterChange={handleFilterChange}
             />
-            <ColorFilter
+            <PriceRangeFilter
                 filters={filters}
                 handleFilterChange={handleFilterChange}
             />
-            <PriceRangeFilter
+            <ClothTypeFilter
                 filters={filters}
                 handleFilterChange={handleFilterChange}
             />

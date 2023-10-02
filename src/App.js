@@ -1,7 +1,7 @@
 import React, { createContext } from "react";
 import ShoppingStore from "./ShoppingStore";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import ShoppingCart from "./ShoppingStore/ShoppingCart";
+import ShoppingCart from "./ShoppingCart";
 import Header from "./ShoppingStore/Header";
 import "./app.css";
 import useGetStateData from "./utils/useGetStateData";

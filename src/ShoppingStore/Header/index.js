@@ -7,23 +7,33 @@ import Filter from "../Filter";
 import { useNavigate } from "react-router-dom";
 const Header = ({ cartLength }) => {
     const [openFilterModal, setOpenFilterModal] = useState(false);
+    const [showFilter, setShowFilter] = useState(true);
     const navigate = useNavigate();
 
     const handleNavigate = () => {
+        setShowFilter(false);
+        setOpenFilterModal(false);
         navigate("/shoppingCart");
+    };
+
+    const handleNavigatToMainPage = () => {
+        setShowFilter(true);
+        navigate("/");
     };
     return (
         <header className="header">
-            <strong onClick={() => navigate("/")} className="heading">
+            <strong onClick={handleNavigatToMainPage} className="heading">
                 TeeRex Store
             </strong>
             <SearchFilter />
-            <img
-                src={filterIcon}
-                alt="filterIcon"
-                className="filter-icon"
-                onClick={() => setOpenFilterModal((prev) => !prev)}
-            />
+            {showFilter ? (
+                <img
+                    src={filterIcon}
+                    alt="filterIcon"
+                    className="filter-icon"
+                    onClick={() => setOpenFilterModal((prev) => !prev)}
+                />
+            ) : null}
             <div className="cart" onClick={handleNavigate}>
                 <img src={cartIcon} height={28} width={28} alt="cart" />
                 <span className="total-cart-item"> {cartLength}</span>
