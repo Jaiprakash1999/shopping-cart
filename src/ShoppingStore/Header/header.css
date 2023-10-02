@@ -9,6 +9,10 @@
     padding: 12px;
     box-shadow: 0px 0px 8px 0px rgba(98, 127, 172, 0.2);
 }
+.heading {
+    font-size: 0.9em;
+    cursor: pointer;
+}
 .cart {
     margin-right: 30px;
     cursor: pointer;

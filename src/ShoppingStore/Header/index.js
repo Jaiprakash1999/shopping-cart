@@ -14,7 +14,7 @@ const Header = ({ cartLength }) => {
     };
     return (
         <header className="header">
-            <strong onClick={() => navigate("/")} style={{ cursor: "pointer" }}>
+            <strong onClick={() => navigate("/")} className="heading">
                 TeeRex Store
             </strong>
             <SearchFilter />
@@ -25,7 +25,6 @@ const Header = ({ cartLength }) => {
                 onClick={() => setOpenFilterModal((prev) => !prev)}
             />
             <div className="cart">
-                <span className="total-cart-item"> {cartLength}</span>
                 <img
                     src={cartIcon}
                     height={28}
@@ -33,6 +32,7 @@ const Header = ({ cartLength }) => {
                     alt="cart"
                     onClick={handleNavigate}
                 />
+                <span className="total-cart-item"> {cartLength}</span>
             </div>
             {openFilterModal ? (
                 <div className="filter-modal">
