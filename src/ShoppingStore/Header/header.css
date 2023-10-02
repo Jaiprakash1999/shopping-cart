@@ -38,3 +38,13 @@
     margin-bottom: 32px;
     margin-left: 6px;
 }
+.filter-dot {
+    height: 8px;
+    width: 8px;
+    border: 1px solid #ffffff;
+    border-radius: 100%;
+    background: red;
+    position: absolute;
+    top: 18px;
+    right: 92px;
+}

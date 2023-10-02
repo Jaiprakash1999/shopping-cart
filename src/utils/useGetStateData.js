@@ -4,13 +4,13 @@ import useGetData from "../ShoppingStore/hooks/useGetData";
 const useGetStateData = () => {
     const { data: products } = useGetData();
     const [cartItem, setCartItem] = useState([]);
-    const [searchText, setSearchText] = useState("");
     const [filteredProducts, setFilteredProducts] = useState(products);
     const [filters, setFilters] = useState({
         gender: "",
         color: "",
         priceRange: "",
         type: "",
+        searchText: "",
     });
 
     const totalCartItem = cartItem.reduce(
@@ -47,37 +47,35 @@ const useGetStateData = () => {
             );
         }
 
-        if (searchText.trim() !== "") {
+        if (filters.searchText.trim() !== "") {
             filtered = filtered.filter(
                 (product) =>
                     product.name
                         .toLowerCase()
-                        .includes(searchText.toLowerCase()) ||
+                        .includes(filters.searchText.toLowerCase()) ||
                     product.color
                         .toLowerCase()
-                        .includes(searchText.toLowerCase()) ||
+                        .includes(filters.searchText.toLowerCase()) ||
                     product.type
                         .toLowerCase()
-                        .includes(searchText.toLowerCase()) ||
+                        .includes(filters.searchText.toLowerCase()) ||
                     product.gender
                         .toLowerCase()
-                        .includes(searchText.toLowerCase())
+                        .includes(filters.searchText.toLowerCase())
             );
         }
 
         setFilteredProducts(filtered);
-    }, [filters, products, searchText]);
+    }, [filters, products]);
 
     useEffect(() => {
         applyFilters();
-    }, [applyFilters, filters, products, searchText]);
+    }, [applyFilters, filters, products]);
 
     return {
         cartItem,
         setCartItem,
         filteredProducts,
-        searchText,
-        setSearchText,
         filters,
         setFilters,
         totalCartItem,

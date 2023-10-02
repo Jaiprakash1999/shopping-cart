@@ -13,8 +13,6 @@ const App = () => {
         cartItem,
         setCartItem,
         filteredProducts,
-        searchText,
-        setSearchText,
         filters,
         setFilters,
         totalCartItem,
@@ -26,15 +24,13 @@ const App = () => {
                 cartItem,
                 setCartItem,
                 filteredProducts,
-                searchText,
-                setSearchText,
                 filters,
                 setFilters,
             }}
         >
             <BrowserRouter>
                 <div className="header-container">
-                    <Header cartLength={totalCartItem} />
+                    <Header cartLength={totalCartItem} filters={filters} />
                     <Routes>
                         <Route path="/" element={<ShoppingStore />} />
                         <Route
