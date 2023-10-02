@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import useGetData from "../ShoppingStore/hooks/useGetData";
+import useGetData from "../../ShoppingStore/hooks/useGetData";
 
 const useGetStateData = () => {
     const { data: products, loading } = useGetData();

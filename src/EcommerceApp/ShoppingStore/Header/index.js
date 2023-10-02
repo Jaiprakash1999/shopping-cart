@@ -26,7 +26,7 @@ const Header = ({ cartLength = 0, appliedFilter = false }) => {
             <strong onClick={handleNavigatToMainPage} className="heading">
                 TeeRex Store
             </strong>
-            <SearchFilter appliedFilter={appliedFilter} />
+            {showFilter ? <SearchFilter appliedFilter={appliedFilter} /> : null}
             {showFilter ? (
                 <div onClick={() => setOpenFilterModal((prev) => !prev)}>
                     <img

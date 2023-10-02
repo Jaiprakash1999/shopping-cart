@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import "./filter.css";
-import { cartContext } from "../../App";
 import ColorFilter from "./ColorFilter";
 import GenderFilter from "./GenderFilter";
 import PriceRangeFilter from "./PriceRangeFilter";
 import ClothTypeFilter from "./ClothTypeFilter";
+import { cartContext } from "../..";
 const Filter = ({ setOpenFilterModal = () => {} }) => {
     const filterState = useContext(cartContext);
     const {

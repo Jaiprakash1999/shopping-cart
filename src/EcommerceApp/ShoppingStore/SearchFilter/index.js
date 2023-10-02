@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import "./searchBox.css";
 import searchIcon from "../Images/search-icon.svg";
-import { cartContext } from "../../App";
+import { cartContext } from "../..";
 const SearchFilter = ({ appliedFilter = false }) => {
     const cartState = useContext(cartContext);
     const {

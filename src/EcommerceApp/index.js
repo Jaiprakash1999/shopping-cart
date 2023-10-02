@@ -1,14 +1,14 @@
-import React, { createContext } from "react";
-import ShoppingStore from "./ShoppingStore";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import ShoppingCart from "./ShoppingCart";
-import Header from "./ShoppingStore/Header";
-import "./app.css";
+import "./ecommerce.css";
+import { createContext } from "react";
 import useGetStateData from "./utils/useGetStateData";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Header from "./ShoppingStore/Header";
+import ShoppingStore from "./ShoppingStore";
+import ShoppingCart from "./ShoppingCart";
 
 export const cartContext = createContext();
 
-const App = () => {
+const EcommerceApp = () => {
     const {
         cartItem = [],
         setCartItem = () => {},
@@ -53,4 +53,4 @@ const App = () => {
     );
 };
 
-export default App;
+export default EcommerceApp;
