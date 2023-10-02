@@ -40,7 +40,7 @@ const ProductList = () => {
                             {gender} | {name}
                         </strong>
                         <div className="bottom">
-                            <strong>Rs {price}</strong>
+                            <strong className="title">Rs {price}</strong>
                             <button
                                 onClick={() => addToCart(product)}
                                 className="add-to-cart-button"
