@@ -5,6 +5,7 @@ import { cartContext } from "../../App";
 const SearchFilter = () => {
     const cartState = useContext(cartContext);
     const { searchText, setSearchText } = cartState || {};
+
     return (
         <div className="input_field">
             <input

@@ -24,14 +24,8 @@ const Header = ({ cartLength }) => {
                 className="filter-icon"
                 onClick={() => setOpenFilterModal((prev) => !prev)}
             />
-            <div className="cart">
-                <img
-                    src={cartIcon}
-                    height={28}
-                    width={28}
-                    alt="cart"
-                    onClick={handleNavigate}
-                />
+            <div className="cart" onClick={handleNavigate}>
+                <img src={cartIcon} height={28} width={28} alt="cart" />
                 <span className="total-cart-item"> {cartLength}</span>
             </div>
             {openFilterModal ? (
