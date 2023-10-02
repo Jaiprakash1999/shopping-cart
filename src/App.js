@@ -16,7 +16,7 @@ const App = () => {
     const [filters, setFilters] = useState({
         gender: "",
         color: "",
-        priceRange: { min: 0, max: 100 }, // Modify the price range as needed
+        priceRange: "", // Modify the price range as needed
         type: "",
     });
 
@@ -35,9 +35,18 @@ const App = () => {
                 (product) => product.color === filters.color
             );
         }
+        //Filter by price range
 
-        // Filter by type
+        if (filters.priceRange) {
+            const range = filters.priceRange.trim().split("-");
+            const [min, max] = range;
+            filtered = filtered.filter(
+                (product) =>
+                    product.price >= min && product.price <= parseFloat(max)
+            );
+        }
         if (filters.type) {
+            // Filter by type
             filtered = filtered.filter(
                 (product) => product.type === filters.type
             );
