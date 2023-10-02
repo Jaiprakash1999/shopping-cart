@@ -5,9 +5,10 @@ import ColorFilter from "./ColorFilter";
 import GenderFilter from "./GenderFilter";
 import PriceRangeFilter from "./PriceRangeFilter";
 import ClothTypeFilter from "./ClothTypeFilter";
-const Filter = () => {
+const Filter = ({ setOpenFilterModal }) => {
     const filterState = useContext(cartContext);
-    const { filters, setFilters } = filterState || {};
+    const { filters, setFilters, handleClearFilters, appliedFilter } =
+        filterState || {};
 
     const handleFilterChange = (e) => {
         const { name, value, type, checked } = e.target;
@@ -27,6 +28,25 @@ const Filter = () => {
 
     return (
         <div className="filter-container">
+            {appliedFilter ? (
+                <div className="button-container">
+                    <button
+                        onClick={() => {
+                            handleClearFilters();
+                            setOpenFilterModal(false);
+                        }}
+                        className="clear-applied-filter"
+                    >
+                        Clear all Filters{" "}
+                    </button>
+                    <button
+                        onClick={() => setOpenFilterModal(false)}
+                        className="clear-applied-filter"
+                    >
+                        Apply Filters
+                    </button>
+                </div>
+            ) : null}
             <ColorFilter
                 filters={filters}
                 handleFilterChange={handleFilterChange}

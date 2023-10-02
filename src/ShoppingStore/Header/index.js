@@ -5,7 +5,7 @@ import filterIcon from "../Images/filter-icon-original.svg";
 import { useState } from "react";
 import Filter from "../Filter";
 import { useNavigate } from "react-router-dom";
-const Header = ({ cartLength, filters }) => {
+const Header = ({ cartLength, appliedFilter }) => {
     const [openFilterModal, setOpenFilterModal] = useState(false);
     const [showFilter, setShowFilter] = useState(true);
     const navigate = useNavigate();
@@ -20,17 +20,13 @@ const Header = ({ cartLength, filters }) => {
         setShowFilter(true);
         navigate("/");
     };
-    const appliedFilter =
-        filters.color.length > 0 ||
-        filters.gender.length > 0 ||
-        filters.type.length > 0 ||
-        filters.priceRange.length > 0;
+
     return (
         <header className="header">
             <strong onClick={handleNavigatToMainPage} className="heading">
                 TeeRex Store
             </strong>
-            <SearchFilter />
+            <SearchFilter appliedFilter={appliedFilter} />
             {showFilter ? (
                 <div onClick={() => setOpenFilterModal((prev) => !prev)}>
                     <img
@@ -49,7 +45,7 @@ const Header = ({ cartLength, filters }) => {
             </div>
             {openFilterModal ? (
                 <div className="filter-modal">
-                    <Filter />
+                    <Filter setOpenFilterModal={setOpenFilterModal} />
                 </div>
             ) : null}
         </header>

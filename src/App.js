@@ -16,6 +16,8 @@ const App = () => {
         filters,
         setFilters,
         totalCartItem,
+        handleClearFilters,
+        appliedFilter,
     } = useGetStateData();
 
     return (
@@ -26,11 +28,16 @@ const App = () => {
                 filteredProducts,
                 filters,
                 setFilters,
+                handleClearFilters,
+                appliedFilter,
             }}
         >
             <BrowserRouter>
                 <div className="header-container">
-                    <Header cartLength={totalCartItem} filters={filters} />
+                    <Header
+                        cartLength={totalCartItem}
+                        appliedFilter={appliedFilter}
+                    />
                     <Routes>
                         <Route path="/" element={<ShoppingStore />} />
                         <Route

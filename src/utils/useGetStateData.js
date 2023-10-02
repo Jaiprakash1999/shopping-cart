@@ -68,6 +68,21 @@ const useGetStateData = () => {
         setFilteredProducts(filtered);
     }, [filters, products]);
 
+    const handleClearFilters = () => {
+        setFilters({
+            gender: "",
+            color: "",
+            priceRange: "",
+            type: "",
+            searchText: "",
+        });
+    };
+    const appliedFilter =
+        filters.color.length > 0 ||
+        filters.gender.length > 0 ||
+        filters.type.length > 0 ||
+        filters.priceRange.length > 0;
+
     useEffect(() => {
         applyFilters();
     }, [applyFilters, filters, products]);
@@ -79,6 +94,8 @@ const useGetStateData = () => {
         filters,
         setFilters,
         totalCartItem,
+        handleClearFilters,
+        appliedFilter,
     };
 };
 
