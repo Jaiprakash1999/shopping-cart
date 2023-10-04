@@ -30,38 +30,44 @@ const ProductList = () => {
         }
     };
 
+    if (loading) {
+        return (
+            <div className="no_data">
+                <strong>Loading...</strong>
+            </div>
+        );
+    }
+
+    if (filteredProducts.length === 0) {
+        return <div className="no_data">No Results found</div>;
+    }
+
     return (
         <div className="product-card-container">
-            {loading ? (
-                <div className="no_data">
-                    <strong>Loading...</strong>
-                </div>
-            ) : (
-                filteredProducts.map((product) => {
-                    const { id, name, imageURL, gender, price } = product || {};
-                    return (
-                        <div className="card" key={id}>
-                            <img
-                                src={imageURL}
-                                alt={name}
-                                className="product-image"
-                            />
-                            <strong className="title">
-                                {gender} | {name}
-                            </strong>
-                            <div className="bottom">
-                                <strong className="title">Rs {price}</strong>
-                                <button
-                                    onClick={() => addToCart(product)}
-                                    className="add-to-cart-button"
-                                >
-                                    Add to Cart
-                                </button>
-                            </div>
+            {filteredProducts.map((product) => {
+                const { id, name, imageURL, gender, price } = product || {};
+                return (
+                    <div className="card" key={id}>
+                        <img
+                            src={imageURL}
+                            alt={name}
+                            className="product-image"
+                        />
+                        <strong className="title">
+                            {gender} | {name}
+                        </strong>
+                        <div className="bottom">
+                            <strong className="title">Rs {price}</strong>
+                            <button
+                                onClick={() => addToCart(product)}
+                                className="add-to-cart-button"
+                            >
+                                Add to Cart
+                            </button>
                         </div>
-                    );
-                })
-            )}
+                    </div>
+                );
+            })}
         </div>
     );
 };
